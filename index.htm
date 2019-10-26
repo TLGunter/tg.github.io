@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="Classes/style.css">
+<link rel="icon" href="Resources/Kangaroo.png">
+<title>Aussie Cities</title>
+</head>
+<body>
+<audio controls autoplay loop>
+    <source src="Resources/Anthem.mp3" type="audio/mpeg">
+</audio>	
+	
+<div class="navbar">
+  <a href="index.htm">Home</a>
+  <div class="dropdown">
+    <button class="dropbtn">Explore   
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="sydney.htm">Sydney</a>
+      <a href="melbourne.htm">Melbourne</a>
+      <a href="adelaide.htm">Adelaide</a>
+	  <a href="darwin.htm">Darwin</a>
+	  <a href="hobart.htm">Hobart</a>
+      <a href="canberra.htm">Canberra</a>
+      <a href="brisbane.htm">Brisbane</a>
+	  <a href="perth.htm">Perth</a>
+	  <a href="newcastle.htm">Newcastle</a>
+      <a href="gold coast.htm">Gold Coast</a>
+    </div>
+  </div> 
+</div>
+	
+<div class="container">
+	<img src="Resources/Adelaide" id="main" alt="yo">
+  <a href="sydney.htm" id="PLEASEWORK"><button class="btn" id="pleasework" onClick="open">Visit Gold Coast</button></a>
+</div>
+	
+<script>
+
+var names = ['Sydney', 'Brisbane', 'Adelaide', 'Canberra', 'Darwin', 'Gold Coast', 'Hobart', 'Melbourne', 'Perth', 'Newcastle'];
+
+function open(){
+	/*window.open("sydney.htm", "_self");*/
+}
+
+var iteration = 0;
+var allPics = ["/Resources/Sydney.jpg", "/Resources/Brisbane.jpg", "/Resources/Adelaide.jpg", "/Resources/Canberra.jpg", "/Resources/Darwin.jpg", "/Resources/Gold Coast.jpg", "/Resources/Hobart.jpg", "/Resources/Melbourne.jpg", "/Resources/Perth.jpg", "/Resources/Newcastle.jpg"];
+function move() {
+	var pic = document.getElementById("main");
+	pic.src = allPics[iteration];
+	document.getElementById('pleasework').childNodes[0].nodeValue="Visit "+names[iteration];
+	document.getElementById('PLEASEWORK').href = names[iteration].toLowerCase()+".htm";
+	iteration++;
+	if(iteration == 9){iteration = 0}
+	setTimeout(move, 5000);
+}
+move();
+</script>
+</body>
+</html>
